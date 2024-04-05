@@ -18,7 +18,6 @@ function RegisterPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-alert("button clicked");
         // Validate password and confirmPassword
         if (formData.password !== formData.confirmPassword) {
             alert('Passwords do not match');
