@@ -9,7 +9,7 @@
 //         <img src={'../newyork.jpg'} alt={title} className="travel-card1-image" />
 //         <div className="travel-card1-content">
 //           <p className="travel-card1-title">New York</p>
-//           <p className="travel-card1-description">New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean. At its core is Manhattan, a densely populated borough that’s among the world’s major commercial, financial and cultural centers. Its iconic sites include skyscrapers such as the Empire State Building and sprawling Central Park.</p>
+//           
 //           <button className="travel-card1-button" >List of Activity </button>
 //         </div>
 //       </div>
@@ -21,6 +21,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './home.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 function Home() {
@@ -32,7 +33,6 @@ function Home() {
       try {
         const response = await axios.get('http://localhost:5500/api/data');
         setDestinations(response.data);
-        debugger
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -42,19 +42,18 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Data from MongoDB</h1>
-      <ul>
-        {destinations.map(destination => (
-          <li key={destination._id}>
-            <strong>{destination.Destination}</strong><br />
-            <em>{destination.Category}</em><br />
-            {destination.Description}<br />
-            Address: {destination.Address}
-          </li>
-        ))}
-      </ul>
-    </div>
+        <div className="d-flex flex-row flex-wrap justify-content-center">
+          {destinations.map(destination => (
+            <div className="travel-card1" key={destination._id}>
+              <img src={'../newyork.jpg'} className="travel-card1-image" />
+              <div className="travel-card1-content">
+                <p className="travel-card1-title">{destination.Destination}</p>
+                <p className="travel-card1-description">{destination.Category}</p>
+                <p className="travel-card1-description">{destination.Description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
   );
 }
 

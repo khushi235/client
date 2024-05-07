@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from 'react-router-dom';
 import "./LoginPage.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import newyorkImage from '../back.jpg';
 
 function LoginPage(props) {
