@@ -1,0 +1,66 @@
+/* aboutUs.css */
+
+  
+/* Apply a CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Use a standard font stack */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* Adjust heading sizes */
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Cursive', sans-serif;;
+  }
+  .navbar-nav .nav-link {
+    color: #333; /* Change the text color to dark */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #555; /* Change the text color on hover */
+  }
+  
+  .navbar-nav .nav-item.active .nav-link {
+    color: #555; /* Change the text color of the active link */
+  }
+  
+  .navbar-nav {
+    background-color: transparent; /* Change the background color of the navbar */
+  }
+  
+  h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Adjust paragraph text size */
+  p {
+    font-size: 1rem;
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  
+  /* Adjust list item text size */
+  ul.list-unstyled li {
+    font-size: 1rem;
+  }
+  
+  /* Additional styling for links */
+  a {
+    color: #007bff; /* Bootstrap primary color */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+ .tag1{
+    color: brown;
+ }

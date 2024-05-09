@@ -1,0 +1,71 @@
+.navbar-logo {
+    max-height: 85px;
+    margin-left: -100px;
+     border-radius:30px ; /* Adjust the max-height value as needed */
+  }
+ /* founders.css */
+.founders-card {
+    border: 1px solid #ddd; /* Example border style */
+    border-radius: 10px; /* Example border radius */
+    padding: 20px; /* Example padding */
+  }
+  
+  .founders-card-title {
+    color: #333; /* Example title color */
+  }
+  
+  .founders-card-text {
+    color: #666; /* Example text color */
+    margin-bottom: 10px; /* Example margin bottom */
+  }
+  
+  .founders-card-link {
+    color: #007bff; /* Example link color */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .founders-card-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  .btn1{
+    font-size: 20px;
+padding-top:10px;
+    text-align: center;
+    height: 50px;
+  }
+  .img1{
+    height: 70px;
+    padding-left: 630px;
+  margin-top: 20px;
+    margin-bottom: 50px;
+    width: auto;
+  }
+  .navbar-nav .nav-link {
+    color: #333; /* Change the text color to dark */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #555; /* Change the text color on hover */
+  }
+  
+  .navbar-nav .nav-item.active .nav-link {
+    color: #555; /* Change the text color of the active link */
+  }
+  
+  .navbar-nav {
+    background-color: rgba(255, 255, 255, 0.6); /* Change the background color of the navbar */
+  }
+.contact{
+    text-align: center;
+    margin-top: 20px;
+}  
+.card{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.navbar-nav .nav-item {
+  margin-right: 10px; /* Adjust the right margin as needed */
+}
+
+.navbar-nav .nav-link {
+  padding-right: 10px; /* Adjust the right padding as needed */
+}

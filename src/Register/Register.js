@@ -36,8 +36,14 @@ function RegisterPage() {
             if (!response.ok) {
                 throw new Error('Failed to save user data');
             }
-            console.log('User data saved successfully');
-            // Handle success response (e.g., show success message)
+            else{
+
+               
+                console.log('User data saved successfully');
+                window.location.href='/';
+                // Handle success response 
+            }
+           
         })
         .catch(error => {
             console.error('Error saving user data:', error.message);
