@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { withRouter } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import "./LoginPage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import newyorkImage from '../back.jpg';
@@ -7,6 +8,7 @@ import newyorkImage from '../back.jpg';
 function LoginPage(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const history = createBrowserHistory({forceRefresh:true});
 
     const backgroundImageStyle = {
         backgroundImage: `url(${newyorkImage})`,
@@ -30,8 +32,11 @@ function LoginPage(props) {
     
                     if (response.ok) {
                         // User info found in database, navigate to home page
-                        props.history.push('/home');
-                        window.location.reload();
+                        // props.history.push('/home');
+                        // window.location.reload();
+                        const data = await response.json();
+                        const userId = data.userId; 
+                        history.push(`/home?userId=${userId}`);
 
                     } else {
                         // User info not found in database, show alert
