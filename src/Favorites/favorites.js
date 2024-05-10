@@ -60,9 +60,9 @@ function Favorites() {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={{ pathname: "/favorites", state: { userId } }} className="nav-link">
+                                <Link to={{ pathname: "/saved", state: { userId } }} className="nav-link">
                                     <FontAwesomeIcon icon={faBookmark} />
-                                    <span className="nav-link-text">Collection</span>
+                                    <span className="nav-link-text">Saved</span>
                                 </Link>
                             </li>
                             <li className="nav-item">
