@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/aboutus" component={Aboutus} />
         <Route exact path="/cartdata/:id" component={Cartdata} />
         <Route exact path="/explore" component={Explore} />
-        <Route exact path="/favorites" component={Favorites} />
+        <Route exact path="/saved" component={Favorites} />
       </Switch>
     </Router>
   );

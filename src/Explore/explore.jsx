@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faHome, faCompass, faBookmark, faLayerGroup, faAddressCard } from '@fortawesome/free-solid-svg-icons';
-import newyorkImage from '../back4.png';
+import { faSearch, faHome, faCompass, faBookmark, faLayerGroup, faAddressCard, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import newyorkImage from '../beach.jpg';
 
 function Explore() {
   const [exploredata, setExploreData] = useState([]);
@@ -39,7 +39,8 @@ function Explore() {
 
   return (
     <div className="home-container" style={{ backgroundImage: `url(${newyorkImage})` }}>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
+
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img src="../roamease.jpg" alt="Roamease" className="navbar-logo" />
@@ -62,9 +63,9 @@ function Explore() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/collection" className="nav-link">
+                <Link to="/saved" className="nav-link">
                   <FontAwesomeIcon icon={faBookmark} />
-                  <span className="nav-link-text">Collection</span>
+                  <span className="nav-link-text">Saved</span>
                 </Link>
               </li>
               <li className="nav-item">
@@ -79,6 +80,12 @@ function Explore() {
                   <span className="nav-link-text">Contact</span>
                 </Link>
               </li>
+              <li className="nav-item">
+                                <Link to="/" className="nav-link">
+                                    <FontAwesomeIcon icon={faSignOutAlt} />
+                                    <span className="nav-link-text">Logout</span>
+                                </Link>
+                            </li>
             </ul>
           </div>
         </div>
