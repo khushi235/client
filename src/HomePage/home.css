@@ -1,3 +1,16 @@
+.linkclass{
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  color: blue; /* Set the text color to blue or any color you prefer */
+  text-decoration: underline; /* Add underline to mimic link */
+  margin-top: 16%;
+  margin-left: 64%;
+  font-size: 62%;
+}
 .home-container {
   background-size: auto;
   background-repeat: repeat;
@@ -102,6 +115,8 @@
 }
 
 .search-bar {
+  display: flex;
+  justify-content: center;
   padding: 20px;
   text-align: right;
 }
@@ -114,13 +129,9 @@
   border-radius: 20px;
 }
 
-/* .input-group-append .input-group-text {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: #fff;
-  border-radius: 20px;
-  cursor: pointer;
-} */
+.input-group-append .input-group-text {
+  height: 44px;
+}
 
 
 .active .nav-link {

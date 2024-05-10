@@ -138,13 +138,6 @@ function Home() {
         </div>
       </div>
 
-
-      {/* <ul>
-              {favorites.map(favorite => (
-                <li key={favorite._id}>{favorite.destinationId}</li>
-              ))}
-            </ul> */}
-
       <div className="d-flex flex-row flex-wrap justify-content-center">
         {filteredDestinations.map((destination, index) => (
           <div className="travel-card1" key={destination._id} onClick={() => handleDestinationClick(destination)}>
@@ -153,8 +146,8 @@ function Home() {
             <div className="travel-card1-content">
               <p className="travel-card1-title">{destination.Destination}</p>
               <p className="travel-card1-description">{destination.Category}</p>
-              <button className='btn btn-outline-info' onClick={() => handleAddFavorite(destination._id)}>Save for Later</button>
               <p className="travel-card1-description">{destination.Description}</p>
+              <button className='linkclass' onClick={() => handleAddFavorite(destination._id)}>Save for Later</button>
             </div>
           </div>
         ))}

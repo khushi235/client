@@ -13,7 +13,7 @@ import Favorites from './Favorites/favorites';
 
 function App() {
   return (
-    <Router>
+    <Router forceRefresh={true}>
       <Switch>
         <Route exact path="/home" component={Home} />
         <Route exact path="/guide" component={Guide} />
