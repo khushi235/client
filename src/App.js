@@ -9,6 +9,7 @@ import Contactus from './Contactus/contactus';
 import Aboutus from './Aboutus/aboutus';
 import Cartdata from './Cartdata/cartdata';
 import Explore from './Explore/explore';
+import Favorites from './Favorites/favorites';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/aboutus" component={Aboutus} />
         <Route exact path="/cartdata/:id" component={Cartdata} />
         <Route exact path="/explore" component={Explore} />
+        <Route exact path="/favorites" component={Favorites} />
       </Switch>
     </Router>
   );

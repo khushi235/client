@@ -13,6 +13,10 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const history = useHistory(); 
   
+  const searchParams = new URLSearchParams(location.search);
+  const userId = searchParams.get('userId');
+  const [favorites, setFavorites] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,7 +28,18 @@ function Home() {
     };
 
     fetchData();
-  }, []);
+
+    const fetchFavorites = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5500/api/favorites/${userId}`);
+        setFavorites(response.data);
+      } catch (err) {
+        console.error('Error fetching favorites:', err);
+      }
+    };
+
+    fetchFavorites();
+  }, [userId]);
 
   // Filter destinations based on search term
   const filteredDestinations = destinations.filter(destination =>
@@ -36,6 +51,20 @@ function Home() {
     // Implement your logic here, for example, navigate to a specific destination page
     console.log('Clicked destination:', destination);
     history.push(`/cartdata/${destination._id}`);
+  };
+  const handleAddFavorite = async (destinationId) => {
+    try {
+      const response = fetch('http://localhost:5500/api/favorites', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId, destinationId })
+      });
+      setFavorites([...favorites, response.data]);
+    } catch (err) {
+      console.error('Error adding favorite:', err);
+    }
   };
 
   return (
@@ -64,7 +93,7 @@ function Home() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/collection" className="nav-link">
+                <Link to={{ pathname: "/favorites", state: { userId } }} className="nav-link">
                   <FontAwesomeIcon icon={faBookmark} />
                   <span className="nav-link-text">Collection</span>
                 </Link>
@@ -103,6 +132,13 @@ function Home() {
         </div>
       </div>
 
+
+      {/* <ul>
+              {favorites.map(favorite => (
+                <li key={favorite._id}>{favorite.destinationId}</li>
+              ))}
+            </ul> */}
+
       <div className="d-flex flex-row flex-wrap justify-content-center">
         {filteredDestinations.map(destination => (
           <div className="travel-card1" key={destination._id} onClick={() => handleDestinationClick(destination)}>
@@ -110,6 +146,7 @@ function Home() {
             <div className="travel-card1-content">
               <p className="travel-card1-title">{destination.Destination}</p>
               <p className="travel-card1-description">{destination.Category}</p>
+              <button className='btn btn-outline-info' onClick={() => handleAddFavorite(destination._id)}>Save for Later</button>
               <p className="travel-card1-description">{destination.Description}</p>
             </div>
           </div>
