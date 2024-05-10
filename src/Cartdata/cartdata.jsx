@@ -54,9 +54,9 @@ function Cartdata() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/collection" className="nav-link">
+                <Link to="/saved" className="nav-link">
                   <FontAwesomeIcon icon={faBookmark} />
-                  <span className="nav-link-text">Collection</span>
+                  <span className="nav-link-text">Saved</span>
                 </Link>
               </li>
               <li className="nav-item">

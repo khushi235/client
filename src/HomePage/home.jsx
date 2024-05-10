@@ -63,6 +63,7 @@ function Home() {
         body: JSON.stringify({ userId, destinationId })
       });
       setFavorites([...favorites, response.data]);
+      alert('Favorite added successfully!');
     } catch (err) {
       console.error('Error adding favorite:', err);
     }
