@@ -13,12 +13,12 @@ function Favorites() {
 
     useEffect(() => {
         const fetchFavorites = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5500/api/favorites/${userId}`);
-                setFavorites(response.data);
-            } catch (err) {
-                console.error('Error fetching favorites:', err);
-            }
+          try {
+            const response = await axios.get(`http://localhost:5500/api/favorites/${userId}`);
+            setFavorites(response.data);
+          } catch (err) {
+            console.error('Error fetching favorites:', err);
+          }
         };
 
         fetchFavorites();

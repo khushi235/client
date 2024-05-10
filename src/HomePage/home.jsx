@@ -3,6 +3,7 @@ import './home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faHome, faCompass, faBookmark, faLayerGroup, faAddressCard, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import newyorkImage from '../beach.jpg';
@@ -11,7 +12,7 @@ function Home() {
   const [destinations, setDestinations] = useState([]);
   const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
-  const history = useHistory(); 
+  const history = createBrowserHistory({forceRefresh:true}); 
   
   const searchParams = new URLSearchParams(location.search);
   const userId = searchParams.get('userId');
@@ -28,7 +29,7 @@ function Home() {
     };
 
     fetchData();
-
+    
     const fetchFavorites = async () => {
       try {
         const response = await axios.get(`http://localhost:5500/api/favorites/${userId}`);
@@ -145,9 +146,10 @@ function Home() {
             </ul> */}
 
       <div className="d-flex flex-row flex-wrap justify-content-center">
-        {filteredDestinations.map(destination => (
+        {filteredDestinations.map((destination, index) => (
           <div className="travel-card1" key={destination._id} onClick={() => handleDestinationClick(destination)}>
-            <img src={'../newyork.jpg'} className="travel-card1-image" alt={destination.Destination} />
+            {/* <img src={'../newyork.jpg'} className="travel-card1-image" alt={destination.Destination} /> */}
+            <img src={process.env.PUBLIC_URL + `../images/${index+1}.jpg`} className="travel-card1-image" alt={destination.Destination} />
             <div className="travel-card1-content">
               <p className="travel-card1-title">{destination.Destination}</p>
               <p className="travel-card1-description">{destination.Category}</p>
