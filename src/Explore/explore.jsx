@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './home.css';
+import './explore.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { Link, useHistory, useLocation } from 'react-router-dom';
@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faHome, faCompass, faBookmark, faLayerGroup, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 import newyorkImage from '../back4.png';
 
-function Home() {
-  const [destinations, setDestinations] = useState([]);
+function Explore() {
+  const [exploredata, setExploreData] = useState([]);
   const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
   const history = useHistory(); 
@@ -16,8 +16,8 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5500/api/data');
-        setDestinations(response.data);
+        const response = await axios.get('http://localhost:5500/api/exploredata');
+        setExploreData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -27,13 +27,12 @@ function Home() {
   }, []);
 
   // Filter destinations based on search term
-  const filteredDestinations = destinations.filter(destination =>
-    destination.Destination.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredDestinations = exploredata.filter(explore =>
+    explore.name && explore.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Handle click on destination card
   const handleDestinationClick = (destination) => {
-    // Implement your logic here, for example, navigate to a specific destination page
     console.log('Clicked destination:', destination);
     history.push(`/cartdata/${destination._id}`);
   };
@@ -50,14 +49,13 @@ function Home() {
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
-            <li className={`nav-item ${location.pathname === '/home' ? 'active' : ''}`}>
-  <Link to="/home" className="nav-link">
-    <FontAwesomeIcon icon={faHome} />
-    <span className="nav-link-text">Home</span>
-  </Link>
-</li>
-
               <li className="nav-item">
+                <Link to="/home" className="nav-link">
+                  <FontAwesomeIcon icon={faHome} />
+                  <span className="nav-link-text">Home</span>
+                </Link>
+              </li>
+              <li className={`nav-item ${location.pathname === '/explore' ? 'active' : ''}`}>
                 <Link to="/explore" className="nav-link">
                   <FontAwesomeIcon icon={faCompass} />
                   <span className="nav-link-text">Explore</span>
@@ -105,12 +103,11 @@ function Home() {
 
       <div className="d-flex flex-row flex-wrap justify-content-center">
         {filteredDestinations.map(destination => (
-          <div className="travel-card1" key={destination._id} onClick={() => handleDestinationClick(destination)}>
-            <img src={'../newyork.jpg'} className="travel-card1-image" alt={destination.Destination} />
+          <div className="travel-card2" key={destination._id} onClick={() => handleDestinationClick(destination)}>
+            <img src={destination.img} className="travel-card2-image" alt={destination.img} />
             <div className="travel-card1-content">
-              <p className="travel-card1-title">{destination.Destination}</p>
-              <p className="travel-card1-description">{destination.Category}</p>
-              <p className="travel-card1-description">{destination.Description}</p>
+              <p className="travel-card1-title">{destination.name}</p>
+             
             </div>
           </div>
         ))}
@@ -119,4 +116,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Explore;

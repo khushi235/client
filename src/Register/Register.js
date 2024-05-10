@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Register.css';
+import newyorkImage from '../back.jpg';
 
 function RegisterPage() {
     const [formData, setFormData] = useState({
@@ -11,17 +12,52 @@ function RegisterPage() {
         confirmPassword: '' // Added confirmPassword field
     });
 
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
+    const backgroundImageStyle = {
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(${newyorkImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100vw', // Use viewport width to cover the entire screen width
+        height: '100vh',
+        margin: 0, // Remove any margin
+        padding: 0, // Remove any padding
+        overflowX: 'hidden',
+      };
+      
+      
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Validate password and confirmPassword
         if (formData.password !== formData.confirmPassword) {
-            alert('Passwords do not match');
+            setPasswordError('Passwords do not match');
             return; // Exit function if passwords don't match
+        } else {
+            setPasswordError('');
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            setEmailError('Invalid email format');
+            return;
+        } else {
+            setEmailError('');
+        }
+
+        // Validate password format
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+        if (!passwordRegex.test(formData.password)) {
+            setPasswordError('Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one digit.');
+            return;
+        } else {
+            setPasswordError('');
         }
 
         // Send POST request to backend API endpoint
@@ -35,15 +71,11 @@ function RegisterPage() {
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to save user data');
-            }
-            else{
-
-               
+            } else {
                 console.log('User data saved successfully');
-                window.location.href='/';
+                window.location.href = '/';
                 // Handle success response 
             }
-           
         })
         .catch(error => {
             console.error('Error saving user data:', error.message);
@@ -52,6 +84,7 @@ function RegisterPage() {
     };
 
     return (
+        <div className="container" style={backgroundImageStyle}>
         <div className="Login">
             <div className="facebook">
                 <div className="roamease">
@@ -72,71 +105,13 @@ function RegisterPage() {
                         <input type="password" name="confirmPassword" placeholder="Confirm Password" value={formData.confirmPassword} onChange={handleChange} /><br />
                         <button type="submit" className="btn2">Register</button>
                     </form>
+                    {emailError && <small className="error" style={{ color: 'red' }}>{emailError}</small>}
+                    {passwordError && <small className="error" style={{ color: 'red' }}>{passwordError}</small>}
                 </div>
             </div>
+        </div>
         </div>
     );
 }
 
 export default RegisterPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import React from "react";
-import "./Register.css";
-function RegisterPage(){
-    return(
-        <div className="Login">
-        <div className="facebook">
-            <div className="roamease">
-            RoamEase
-            </div>
-            <div className="title">
-               Discover the world with ease.
-
-            </div>
-        </div>
-        
-        <div className="logincontainer">
-
-            <div className="logindetail">
-            <input type="name" placeholder="First Name"></input><br/>
-                <input type="name" placeholder="Last Name"></input><br/>
-                <input type="date" placeholder="Birth day (MM/DD/YY)"></input><br/>
-                <input type="email" placeholder="Email address or phone number"></input><br/>
-                <input type="password" placeholder="Password"></input><br/>
-                <input type="password" placeholder="Confirm Password"></input><br/>
-                <button className="btn2">
-                   Log in
-                </button>
-            
-            
-            
-               
-            </div>
-           
-    
-           
-        </div>
-</div>
-    )
-   
-}
-export default RegisterPage;*/

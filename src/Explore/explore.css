@@ -1,0 +1,131 @@
+.home-container {
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  
+  .navbar-logo {
+    max-height: 85px;
+    margin-left: -100px;
+    border-radius: 30px; /* Adjust the max-height value as needed */
+  }
+  
+  .travel-card2 {
+    border-style: ridge;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    color: #cceeff;
+    width: 220px;
+    height: 250px;
+    margin: 25px;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .travel-card2:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .travel-card2-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .travel-card1-content {
+    align-items: center;
+  }
+  
+  .travel-card1-title {
+    font-size: 24px;
+    font-style: oblique;
+    font-weight: 600;
+    color: #333;
+    margin-top: 3px;
+  }
+  
+  .travel-card1-description {
+    font-size: 14px;
+    color: black;
+    max-height: 50px;
+    margin-top: 0px;
+  }
+  
+  .travel-card1-button {
+    background-color: #72b197;
+    color: #fff;
+    border: none;
+    box-shadow: #333;
+    height: 30px;
+    width: 120px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    transition: background-color 0.3s ease;
+    margin-top: 75px;
+  }
+  
+  .travel-card1-button:hover {
+    background-color: darkolivegreen;
+  }
+  
+  .travel-card1-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+  }
+  
+  .travel-card1-footer span {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .travel-card1-footer .heart-icon {
+    color: #f44336;
+  }
+  
+  .travel-card1-footer .heart-icon:hover {
+    color: #f44336;
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+  }
+  
+  .search-bar {
+    padding: 20px;
+    text-align: right;
+  }
+  
+  .input-group {
+    width: 60%;
+  }
+  
+  .input-group input[type="text"] {
+    border-radius: 20px;
+  }
+  
+  /* .input-group-append .input-group-text {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+  } */
+  
+  
+  .active .nav-link {
+    text-decoration: underline;
+  }
+  

@@ -1,14 +1,14 @@
 import React from 'react';
 import './aboutus.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom'; 
+import { Link, useLocation } from 'react-router-dom'; 
 import newyorkImage from '../beach.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCompass, faBookmark, faLayerGroup, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 
 function Aboutus() {
-  
+  const location = useLocation();
     const backgroundImageStyle = {
         backgroundImage: `url(${newyorkImage})`,
         backgroundSize: 'cover', // Adjust background size to cover the container
@@ -49,12 +49,14 @@ function Aboutus() {
                 <span className="nav-link-text">Collection</span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/aboutus" className="nav-link">
-                <FontAwesomeIcon icon={faLayerGroup} />
-                <span className="nav-link-text">About</span>
-              </Link>
-            </li>
+            
+            <li className={`nav-item ${location.pathname === '/aboutus' ? 'active' : ''}`}>
+  <Link to="/aboutus" className="nav-link">
+    <FontAwesomeIcon icon={faLayerGroup} />
+    <span className="nav-link-text">About</span>
+  </Link>
+</li>
+
             <li className="nav-item">
               <Link to="/contactus" className="nav-link">
                 <FontAwesomeIcon icon={faAddressCard} />

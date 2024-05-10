@@ -30,6 +30,7 @@
 
 .travel-card1:hover {
   transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .travel-card1-image {
@@ -113,19 +114,15 @@
   border-radius: 20px;
 }
 
-.input-group-append .input-group-text {
+/* .input-group-append .input-group-text {
   background-color: #007bff;
   border-color: #007bff;
   color: #fff;
   border-radius: 20px;
   cursor: pointer;
-}
+} */
 
-.input-group-append .input-group-text:hover {
-  background-color: #0056b3;
-}
-.active {
-  /* Your active link styling */
-  font-weight: bold; /* For example, making the font bold */
- 
+
+.active .nav-link {
+  text-decoration: underline;
 }

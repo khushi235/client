@@ -28,10 +28,7 @@
     color: #555; /* Change the text color on hover */
   }
   
-  .navbar-nav .nav-item.active .nav-link {
-    color: #555; /* Change the text color of the active link */
-  }
-  
+ 
   .navbar-nav {
     background-color: transparent; /* Change the background color of the navbar */
   }
@@ -64,3 +61,6 @@
  .tag1{
     color: brown;
  }
+ .active .nav-link {
+  text-decoration: underline;
+}

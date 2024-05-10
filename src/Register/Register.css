@@ -26,11 +26,12 @@ body{
 }
 .logincontainer{
     border: rgb(245, 245, 247).3rem solid;
-    background-color: rgb(245, 245, 247);
-    height: 25rem;
+  
+    height: 33rem;
     width: 27rem;
     padding: 1rem;
     border-radius: .7rem;
+    background-color: rgba(255, 255, 255, 0.6);
 
 }
 input[type=email]{
@@ -137,4 +138,8 @@ margin-left: 20%;
 .btn a:hover{
     color: black;
     
+}
+.error
+{
+    font-size: 14px;
 }
